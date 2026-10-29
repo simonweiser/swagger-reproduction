@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Swagger reproduction
+  description: ''
+  version: 1.0.0
+  contact: {}
+tags: []
+servers: []
+paths:
+  /child-with-required-true:
+    get:
+      operationId: DemoController_childWithRequiredTrue
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChildWithRequiredTrue'
+          description: ''
+      tags:
+        - Demo
+  /child-without-required:
+    get:
+      operationId: DemoController_childWithoutRequired
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChildWithoutRequired'
+          description: ''
+      tags:
+        - Demo
+  /standalone-without-required:
+    get:
+      operationId: DemoController_standaloneWithoutRequired
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandaloneWithoutRequired'
+          description: ''
+      tags:
+        - Demo
+components:
+  schemas:
+    ChildWithRequiredTrue:
+      properties:
+        name:
+          type: string
+      required:
+        - name
+      type: object
+    ChildWithoutRequired:
+      properties:
+        name:
+          type: string
+      type: object
+    StandaloneWithoutRequired:
+      properties:
+        name:
+          type: string
+      required:
+        - name
+      type: object
